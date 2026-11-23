@@ -68,3 +68,17 @@ window.onstorage = function (event) {
 };
 
 render();
+
+// 현재 시간 표시
+const clockEl = document.querySelector(".clock-time");
+
+function renderClock() {
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mm = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  clockEl.textContent = `${hh}:${mm}:${ss}`;
+}
+
+renderClock();
+setInterval(renderClock, 1000);
